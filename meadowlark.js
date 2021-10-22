@@ -1,16 +1,9 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
+const fortune = require("./lib/fortune");
 const app = express();
 
 const port = process.env.PORT || 3000;
-
-const fortunes = [
-  "Conquer your fears or they will conquer you.",
-  "Rivers need springs.",
-  "Do not fear what you don't know.",
-  "You will have a pleasant surprise.",
-  "Whenever possible, keep it simple.",
-];
 
 app.engine("handlebars", expressHandlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
@@ -20,7 +13,7 @@ app.use(express.static(__dirname + "/public"));
 app.get("/", (req, res) => res.render("home"));
 
 app.get("/about", (req, res) => {
-  const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+  fortune.getFortune();
   res.render("about", { fortune });
 });
 
