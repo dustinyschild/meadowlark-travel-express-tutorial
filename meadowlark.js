@@ -19,9 +19,14 @@ app.use(handlers.notFound);
 
 app.use(handlers.serverError);
 
-app.listen(port, () =>
-  console.log(
-    `Express started on http://localhost:${port}; ` +
-      "Press Ctrl + C to terminate."
-  )
-);
+// ask if this file is the main module, i.e. was I run directly from command line
+if (require.main === module) {
+  app.listen(port, () =>
+    console.log(
+      `Express started on http://localhost:${port}; ` +
+        "Press Ctrl + C to terminate."
+    )
+  );
+} else {
+  module.exports = app;
+}
