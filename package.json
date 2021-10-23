@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node .",
     "start:dev": "nodemon .",
-    "test": "jest  --coverage",
+    "test": "eslint meadowlark.js lib && jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint meadowlark.js lib"
   },
