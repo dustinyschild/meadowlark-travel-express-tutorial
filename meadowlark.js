@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const handlers = require("./lib/handlers");
+const weatherMiddleware = require("./lib/middleware/weather");
 
 app.engine(
   "handlebars",
@@ -23,6 +24,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 app.use(express.static(__dirname + "/public"));
+
+app.use(weatherMiddleware);
 
 app.get("/", handlers.home);
 app.get("/about", handlers.about);
