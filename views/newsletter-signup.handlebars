@@ -1,32 +1,31 @@
 <h2>Sign up for our newsletter to receive news and specials!</h2>
-<form
-  class="form-horizontal"
-  role="form"
-  action="/newsletter-signup/process?form=newsletter"
-  method="POST"
->
-  <input type="hidden" name="_csrf" value="{{csrf}}" />
-  <div class="form-group">
-    <label for="fieldName" class="col-sm-2 control-label">Name</label>
-    <div class="col-sm-4">
-      <input type="text" name="name" id="fieldName" class="form-control" />
+<div id="newsletterSignupFormContainer">
+  <form class="form-horizontal" role="form" id="newsletterSignupForm">
+    <input type="hidden" name="_csrf" value="{{csrf}}" />
+    <div class="form-group">
+      <label for="fieldName" class="col-sm-2 control-label">Name</label>
+      <div class="col-sm-4">
+        <input type="text" name="name" id="fieldName" class="form-control" />
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-4">
-      <input
-        type="email"
-        name="email"
-        id="fieldEmail"
-        class="form-control"
-        required
-      />
+    <div class="form-group">
+      <label for="fieldEmail" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-4">
+        <input
+          type="email"
+          name="email"
+          id="fieldEmail"
+          class="form-control"
+          required
+        />
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-4">
-      <button type="submit" class="btn btn-primary">Register</button>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-4">
+        <button type="submit" class="btn btn-primary">Register</button>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
+</div>
+
+<script src="/newsletter-signup.js"></script>
